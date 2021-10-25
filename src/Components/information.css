@@ -1,0 +1,39 @@
+.information {
+    flex: .4;
+    padding: 0.5em;
+    /* border: 2px solid black; */
+}
+
+.info-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.reset-form {
+    border: 2px solid #DD2022;
+    color: #DD2022;
+    background-color: white;
+    padding: 0.2em;
+    border-radius: 8%;
+}
+
+.reset-form:hover {
+    color: white;
+    background-color: #DD2022;
+}
+
+.MuiButton-contained {
+    color: black !important;
+    background-color: #f6f6f6 !important;
+}
+
+.MuiButton-contained:hover {
+    color: white !important;
+    background-color: #DD2022 !important;
+}
+
+.selected {
+    color: white !important;
+    background-color: #DD2022 !important;
+}

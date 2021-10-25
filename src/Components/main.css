@@ -1,0 +1,60 @@
+.main-input {
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  padding: 1em;
+}
+
+.main {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.main-input > label {
+  padding: 0.5em;
+  background-color: white;
+  text-transform: uppercase;
+  color: black;
+  border: 1px solid #dddddd;
+  border-radius: 2px 2px 0px 0px;
+}
+
+.main-input > input {
+  background-color: #f7f7f7;
+  color: black;
+  padding: 0.5em;
+  border: 1px solid #dddddd;
+  border-radius: 0px 0px 2px 2px;
+  font-size: medium;
+}
+
+.star {
+  color: red;
+  font-size: 18px;
+  right: 8px;
+  top: 58%;
+  line-height: 1;
+  transform: translateY(-50%);
+  position: static;
+}
+
+.main .MuiButton-contained {
+  border-radius: 25px !important;
+  background-color: #dd2022 !important;
+  color: white !important;
+  width: 100% !important;
+  text-transform: capitalize !important;
+}
+
+.main .MuiButton-contained:hover {
+  background-color: #181b3a !important;
+}
+
+.main > p {
+  font-size: smaller;
+  padding-left: 1em;
+}
+
+input:focus {
+  outline: none;
+}

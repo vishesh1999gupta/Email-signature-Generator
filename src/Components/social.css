@@ -1,0 +1,41 @@
+.social-input {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 1em 0em;
+}
+
+.social-input > input {
+  /* width: 70%; */
+  border: 1px solid #dddddd;
+  margin-left: 1em;
+  padding: 0.5em;
+  font-size: medium;
+  border-radius: 5px;
+}
+
+.social-icons {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  align-content: center;
+  text-align: center;
+  padding: 1em 4em;
+  display: flex;
+  flex-direction: column;
+}
+
+.social-icons > span {
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 0.8em;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+.social {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
