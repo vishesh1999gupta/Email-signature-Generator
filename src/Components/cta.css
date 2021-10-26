@@ -1,0 +1,120 @@
+.cta-input {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.cta {
+  width: 100%;
+  overflow-x: hidden;
+  font-size: 1em;
+}
+
+.cta-input > label {
+  padding: 0.5em;
+  background-color: white;
+  text-transform: uppercase;
+  color: black;
+  border: 1px solid #dddddd;
+  border-radius: 2px 2px 0px 0px;
+}
+
+.cta-input > input {
+  background-color: #f7f7f7;
+  color: black;
+  padding: 0.5em;
+  border: 1px solid #dddddd;
+  border-radius: 0px 0px 2px 2px;
+  font-size: medium;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+select:focus {
+  outline: none;
+}
+
+.color-input {
+  display: flex;
+  flex-direction: row;
+}
+
+.color-input > input {
+  background-color: #f7f7f7;
+  color: black;
+  border: 1px solid #dddddd;
+  border-radius: 0px 0px 2px 2px;
+  font-size: medium;
+  width: 100%;
+}
+
+.select-input {
+  background-color: #f7f7f7;
+  color: black;
+  border: 1px solid #dddddd;
+  border-radius: 0px 0px 2px 2px;
+  font-size: medium;
+  padding: 0.5em;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: 50%;
+  width: 0.5em;
+  height: 0.5em;
+
+  border: 1px solid #666;
+  color: #dd2022;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+  padding: 20px;
+
+  position: relative;
+  top: 4px;
+
+  vertical-align: middle;
+}
+
+input:checked {
+  background-image: radial-gradient(#dd2022 50%, white 50%);
+  /* background-size: 50%; */
+  outline: unset !important;
+}
+
+.radioButton input {
+  font-size: large;
+  padding: 0.5em;
+  line-height: 1.6;
+  margin-left: 0.7em;
+  vertical-align: middle;
+}
+
+.radioButton {
+  display: flex;
+  flex-direction: row;
+  line-height: 2;
+  padding: 0.5em;
+}
+
+.cta .MuiButton-contained {
+  border-radius: 25px !important;
+  background-color: #dd2022 !important;
+  color: white !important;
+  width: 100% !important;
+  text-transform: capitalize !important;
+}
+
+.cta .MuiButton-contained:hover {
+  background-color: #181b3a !important;
+}
+
+.cta  p {
+  font-size: smaller;
+  padding-left: 1em;
+}

@@ -24,9 +24,14 @@ const mainReducer = (prevState = initialState, action) => {
     
     switch(action.type){
         case CHANGE_MAIN_VALUE: 
+            // console.log(prevState)
             let stringifiedPrevState = JSON.stringify(prevState)
             let newState = JSON.parse(stringifiedPrevState)
-            newState["form"][action.key] = action.value
+
+            if(action.key === "image"){
+                newState["form"][action.key] = URL.createObjectURL(action.value);
+            }
+            else newState["form"][action.key] = action.value
             return {
                 ...newState
             }

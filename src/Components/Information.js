@@ -5,6 +5,8 @@ import "./information.css";
 import Main from './Main.js';
 import Social from "./Social";
 import Style from "./Style";
+import Cta from "./Cta";
+import Addons from "./Addons";
 
 function Information() {
   const [section, setSection] = useState("main");
@@ -62,6 +64,12 @@ function Information() {
       }
       {
         section === 'style' && <Style/>
+      }
+      {
+        section === 'cta' && <Cta/>
+      }
+      {
+        section === 'addons' && <Addons/>
       }
 
       

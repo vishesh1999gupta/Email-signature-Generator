@@ -2,6 +2,7 @@ import React from "react";
 import "./template1.css";
 import { useSelector } from "react-redux";
 import { SocialIcon } from "react-social-icons";
+import { Button } from "@mui/material";
 // export const loadFile = function(file) {
 // 	var image = document.getElement('.image');
 // 	image.src = URL.createObjectURL(file);
@@ -11,6 +12,7 @@ function Template1() {
   const form = useSelector((state) => state.main.form);
   const styling = useSelector((state) => state.style.form);
   const socials = useSelector((state) => state.social);
+  const cta = useSelector((state) => state.cta.form);
 
   return (
     <div className="template1">
@@ -163,27 +165,6 @@ function Template1() {
             color: styling.featureColor,
             fontFamily: styling.fontStyle,
             fontSize: parseInt(styling.fontSize).toString() + "px",
-            display: parseInt(form.officeFax.length) === 0 && "none",
-          }}
-        >
-          F:{" "}
-        </span>
-        <span
-          style={{
-            color: styling.textColor,
-            fontFamily: styling.fontStyle,
-            fontSize: parseInt(styling.fontSize).toString() + "px",
-          }}
-        >
-          {form.officeFax}
-        </span>
-      </div>
-      <div>
-        <span
-          style={{
-            color: styling.featureColor,
-            fontFamily: styling.fontStyle,
-            fontSize: parseInt(styling.fontSize).toString() + "px",
             display: parseInt(form.website.length) === 0 && "none",
           }}
         >
@@ -220,15 +201,51 @@ function Template1() {
           {form.email}
         </span>
       </div>
+
+      {/* Image */}
       <div>
         {form.image && (
           <img
-            src={URL.createObjectURL(form.image)}
+            alt="image"
+            src={form.image}
             height={styling.avatarSize.toString() + "px"}
-            style={{borderRadius: styling.avatarRadius}}
+            style={{ borderRadius: styling.avatarRadius }}
           />
         )}
       </div>
+
+      {/* CTA */}
+
+      <div>
+        {cta.image && cta.imageView && (
+          <a href={cta.link.length === 0 ? "#" : cta.link} target="_blank">
+            <img
+              alt={cta.altText}
+              src={cta.image}
+              height={styling.ctaImageSize}
+              style={{ borderRadius: styling.ctaImageRadius }}
+            />
+          </a>
+        )}
+
+        {
+          !cta.imageView && cta.text.length > 0 && (
+            <Button style={{
+              backgroundColor: cta.backgroundColor,
+              color: cta.textColor,
+              borderRadius: "25px",
+              fontSize:  parseInt(cta.textSize).toString() + "px",
+              fontFamily: cta.textStyle,
+              padding: "0.5em"
+
+            }}>
+              {cta.text}
+            </Button>
+          )
+        }
+      </div>
+
+      {/* Socials  */}
       <div className="icons">
         {socials.selected.map((social) => (
           <SocialIcon
@@ -236,7 +253,7 @@ function Template1() {
               display: parseInt(social.value.length) === 0 && "none",
               height: styling.iconSize,
               width: styling.iconSize,
-              marginRight: "0.2em"
+              marginRight: "0.2em",
             }}
             key={social.socialID}
             url={social.value}

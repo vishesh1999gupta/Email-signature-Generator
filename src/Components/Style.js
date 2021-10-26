@@ -8,7 +8,8 @@ import Slider from "@mui/material/Slider";
 
 function Style() {
   const form = useSelector((state) => state.style.form);
-
+  const main = useSelector((state) => state.main.form)
+  const cta = useSelector((state) => state.cta.form);
   const dispatch = useDispatch();
 
   return (
@@ -113,6 +114,7 @@ function Style() {
           <div className="style-input">
             <label>Avatar Size</label>
             <Slider
+              disabled = {main.image === null}
               value={form.avatarSize}
               min={50}
               max={180}
@@ -129,7 +131,7 @@ function Style() {
         <Grid item xs={12} sm={12} md={6}>
           <div className="style-input">
             <label>Avatar Radius</label>
-            <select className="select-input" value={form.avatarRadius} onChange={(event) => {
+            <select className="select-input" disabled = {main.image === null} value={form.avatarRadius} onChange={(event) => {
                 dispatch(changeStyleInput('avatarRadius', event.target.value))
             }}>
               <option value="0%">Square</option>
@@ -145,6 +147,7 @@ function Style() {
               value={form.ctaImageSize}
               min={50}
               max={180}
+              disabled = {cta.image === null}
               onChange={(event) => {
                 dispatch(
                   changeStyleInput("ctaImageSize", parseInt(event.target.value))
@@ -158,12 +161,12 @@ function Style() {
         <Grid item xs={12} sm={12} md={6}>
           <div className="style-input">
             <label>CTA Image Radius</label>
-            <select className="select-input" value={form.ctaImageRadius} onChange={(event) => {
+            <select className="select-input" disabled = {cta.image === null} value={form.ctaImageRadius} onChange={(event) => {
                 dispatch(changeStyleInput('ctaImageRadius', event.target.value))
             }}>
-              <option value="Square">Square</option>
-              <option value="Rounded Corners">Rounded Corners</option>
-              <option value="Circle">Circle</option>
+              <option value="0%">Square</option>
+              <option value="10%">Rounded Corners</option>
+              <option value="50%">Circle</option>
             </select>
           </div>
         </Grid>

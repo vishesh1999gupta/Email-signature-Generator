@@ -10,8 +10,8 @@ const initialState = {
         avatarSize: 100,
         avatarRadius: "0%",
         ctaImageSize: 100,
-        ctaImageRadius: "Square",
-        iconSize: 20,
+        ctaImageRadius: "0%",
+        iconSize: 25,
     }
 }
 
