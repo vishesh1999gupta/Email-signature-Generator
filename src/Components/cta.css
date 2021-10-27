@@ -70,7 +70,7 @@ input[type="radio"] {
   height: 0.5em;
 
   border: 1px solid #666;
-  color: #dd2022;
+  color: #0385DB;
   transition: 0.2s all linear;
   margin-right: 5px;
   padding: 20px;
@@ -82,7 +82,7 @@ input[type="radio"] {
 }
 
 input:checked {
-  background-image: radial-gradient(#dd2022 50%, white 50%);
+  background-image: radial-gradient(#0385DB 50%, white 50%);
   /* background-size: 50%; */
   outline: unset !important;
 }
@@ -104,7 +104,7 @@ input:checked {
 
 .cta .MuiButton-contained {
   border-radius: 25px !important;
-  background-color: #dd2022 !important;
+  background-color: #0385DB !important;
   color: white !important;
   width: 100% !important;
   text-transform: capitalize !important;

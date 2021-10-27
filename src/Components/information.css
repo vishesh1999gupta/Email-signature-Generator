@@ -11,8 +11,8 @@
 }
 
 .reset-form {
-    border: 2px solid #DD2022;
-    color: #DD2022;
+    border: 2px solid #0385DB;
+    color: #0385DB;
     background-color: white;
     padding: 0.2em;
     border-radius: 8%;
@@ -20,7 +20,7 @@
 
 .reset-form:hover {
     color: white;
-    background-color: #DD2022;
+    background-color: #0385DB;
 }
 
 .MuiButton-contained {
@@ -30,10 +30,10 @@
 
 .MuiButton-contained:hover {
     color: white !important;
-    background-color: #DD2022 !important;
+    background-color: #0385DB !important;
 }
 
 .selected {
     color: white !important;
-    background-color: #DD2022 !important;
+    background-color: #0385DB !important;
 }

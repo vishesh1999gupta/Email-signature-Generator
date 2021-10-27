@@ -5,63 +5,77 @@ const initialState = {
         {
             socialID: "Facebook",
             website: "https://www.facebook.com",
+            source: "https://i.ibb.co/n09rLQC/facebook.png",
             value: ""
         },
         {
             socialID: "Twitter",
             website: "https://www.twitter.com",
+            source: "https://i.ibb.co/n34NSsS/twitter-squared.png",
             value: ""
         },
         {
             socialID: "LinkedIn",
             website: "https://www.linkedin.com",
+            source: "https://i.ibb.co/TwgtJq6/linkedin.png",
             value: ""
         }
     ],
     otherSocials: [
         {
             socialID: "Instagram",
-            website: "https://www.instagram.com"
+            website: "https://www.instagram.com",
+            source: "https://i.ibb.co/BKvYdmS/instagram-new.png"
         },
         {
             socialID: "Pinterest",
-            website: "https://www.pinterest.com"
+            website: "https://www.pinterest.com",
+            source: "https://i.ibb.co/sbcstPs/pinterest-v1.png"
         },
         {
             socialID: "Youtube",
-            website: "https://www.youtube.com"
+            website: "https://www.youtube.com",
+            source: "https://i.ibb.co/k3vT997/youtube-play.png"
         },
         {
             socialID: "Tumblr",
-            website: "https://www.tumblr.com"
+            website: "https://www.tumblr.com",
+            source: "https://i.ibb.co/SRv70SR/tumblr.png"
         },
         {
             socialID: "Github",
-            website: "https://www.github.com"
+            website: "https://www.github.com",
+            source: "https://i.ibb.co/wRQ2cP1/github.png"
         },
         {
             socialID: "Snapchat",
-            website: "https://www.snapchat.com"
+            website: "https://www.snapchat.com",
+            source: "https://i.ibb.co/wCbppC1/snapchat.png"
         },
         {
             socialID: "StackOverFlow",
-            website: "https://www.stackoverflow.com"
+            website: "https://www.stackoverflow.com",
+            source: "https://i.ibb.co/s2KQJdv/732248.png"
         },
         {
             socialID: "Reddit",
-            website: "https://www.reddit.com"
+            website: "https://www.reddit.com",
+            source: "https://i.ibb.co/Wk1q26M/reddit.png"
         },
         {
             socialID: "Telegram",
-            website: "https://www.telegram.com"
+            website: "https://www.telegram.com",
+            source: "https://i.ibb.co/h7Tf9D2/telegram-app-v1.png"
         },
         {
             socialID: "Whatsapp",
-            website: "https://www.whatsapp.com"
+            website: "https://www.whatsapp.com",
+            source: "https://i.ibb.co/n8NznCj/whatsapp.png"
         },
         {
             socialID: "Medium",
-            website: "https://www.medium.com"
+            website: "https://www.medium.com",
+            source: "https://i.ibb.co/NLgwLFK/medium-monogram-v1.png"
         }
     ]
 }
@@ -81,6 +95,7 @@ const socialReducer = (prevState = initialState, action) => {
             newSocial.push({
                 socialID: action.socialID,
                 website: selectedSocial.website,
+                source: selectedSocial.source,
                 value: ''
             })
 
@@ -92,6 +107,13 @@ const socialReducer = (prevState = initialState, action) => {
             }
 
         case REMOVE_SOCIAL: 
+
+            if(action.socialID === null){
+                return {
+                    ...initialState
+                }
+            }
+            
             let newSelected = []
             let unselectedSocial = null
             prevState.selected.forEach((social) => {
@@ -104,6 +126,7 @@ const socialReducer = (prevState = initialState, action) => {
             newOtherSocial.push({
                 socialID: action.socialID,
                 website: unselectedSocial.website,
+                source: unselectedSocial.source
             })
 
             

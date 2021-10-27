@@ -2,22 +2,65 @@ import React, { useState } from "react";
 import "./cta.css";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Collapse from "@mui/material/Collapse";
+import CloseIcon from "@mui/icons-material/Close";
 import { styled } from "@mui/material/styles";
 import { useSelector, useDispatch } from "react-redux";
 import UploadIcon from "@mui/icons-material/Upload";
 import { changeCTAInput } from "../redux/actions/ctaActions";
+import axios from "axios";
 
 const Input = styled("input")({
   display: "none",
 });
 
 function Cta() {
-//   const [selector, setSelector] = useState(false);
+  //   const [selector, setSelector] = useState(false);
   const form = useSelector((state) => state.cta.form);
-
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+
+  const handleCTAClick = (image) => {
+    axios.post("http://localhost:4000/image-upload", image).then((res) => {
+      // console.log(res.data)
+      dispatch(
+        changeCTAInput("image", "http://localhost:4000/uploads/" + res.data)
+      );
+      setOpen(true);
+      setTimeout(function () {
+        setOpen(false);
+      }, 3000);
+    });
+  };
+
   return (
     <div className="cta">
+      <div className="alert">
+        <Box sx={{ width: "100%" }}>
+          <Collapse in={open}>
+            <Alert
+              action={
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              }
+              sx={{ mb: 2 }}
+            >
+              CTA Image Uploaded Successfully
+            </Alert>
+          </Collapse>
+        </Box>
+      </div>
       <div className="radioButton">
         <input
           type="radio"
@@ -52,8 +95,13 @@ function Cta() {
               multiple
               type="file"
               onChange={(e) => {
-                dispatch(changeCTAInput("image", e.target.files[0]));
-                // loadFile(e.target.files[0])
+                const formData = new FormData();
+                formData.append(
+                  "my-image-file",
+                  e.target.files[0],
+                  e.target.files[0].name
+                );
+                handleCTAClick(formData);
               }}
             />
             <Button variant="contained" component="span">

@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: 5px 0px 0px 3px #DDDDDD;
+  /* border: 1px solid #DDDDDD; */
+}
+
+img {
+    padding: 0.5em;
+    height: 5em ;
+
+}

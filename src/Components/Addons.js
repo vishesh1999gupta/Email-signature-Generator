@@ -61,7 +61,7 @@ function Addons() {
             <Slider
               value={form.width}
               min={200}
-              max={800}
+              max={675}
               onChange={(event) => {
                 dispatch(
                   changeADDONSInput("width", parseInt(event.target.value))

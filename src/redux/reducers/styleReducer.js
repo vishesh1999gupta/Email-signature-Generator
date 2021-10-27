@@ -3,7 +3,7 @@ import { CHANGE_STYLE_VALUE } from "../actions/actionType"
 const initialState = {
     form: {
         textColor: "#333333",
-        featureColor: "#DD2022",
+        featureColor: "#0385DB",
         linkColor: "#1DA1DB",
         fontStyle: "Arial",
         fontSize: 14,
@@ -11,7 +11,7 @@ const initialState = {
         avatarRadius: "0%",
         ctaImageSize: 100,
         ctaImageRadius: "0%",
-        iconSize: 25,
+        iconSize: 30,
     }
 }
 
@@ -24,7 +24,11 @@ const styleReducer = (prevState = initialState, action) => {
             // console.log(action)
             let stringifiedPrevState = JSON.stringify(prevState)
             let newState = JSON.parse(stringifiedPrevState)
-            newState["form"][action.key] = action.value
+            if(action.key === "reset"){
+                newState = initialState
+            }
+            else newState["form"][action.key] = action.value
+
             return {
                 ...newState
             }

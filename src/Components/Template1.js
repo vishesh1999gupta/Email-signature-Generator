@@ -1,18 +1,16 @@
 import React from "react";
 import "./template1.css";
 import { useSelector } from "react-redux";
-import { SocialIcon } from "react-social-icons";
 import { Button } from "@mui/material";
-// export const loadFile = function(file) {
-// 	var image = document.getElement('.image');
-// 	image.src = URL.createObjectURL(file);
-// };
+
+
 
 function Template1() {
   const form = useSelector((state) => state.main.form);
   const styling = useSelector((state) => state.style.form);
   const socials = useSelector((state) => state.social);
   const cta = useSelector((state) => state.cta.form);
+  const addons = useSelector((state) => state.addons.form);
 
   return (
     <div className="template1">
@@ -203,13 +201,14 @@ function Template1() {
       </div>
 
       {/* Image */}
+
       <div>
         {form.image && (
           <img
             alt="image"
             src={form.image}
             height={styling.avatarSize.toString() + "px"}
-            style={{ borderRadius: styling.avatarRadius }}
+            style={{ borderRadius: styling.avatarRadius, paddingTop: "0.3em" }}
           />
         )}
       </div>
@@ -223,42 +222,57 @@ function Template1() {
               alt={cta.altText}
               src={cta.image}
               height={styling.ctaImageSize}
-              style={{ borderRadius: styling.ctaImageRadius }}
+              style={{ borderRadius: styling.ctaImageRadius, paddingTop: "0.3em" }}
             />
           </a>
         )}
 
-        {
-          !cta.imageView && cta.text.length > 0 && (
-            <Button style={{
+        {!cta.imageView && cta.text.length > 0 && (
+          <Button
+            style={{
               backgroundColor: cta.backgroundColor,
               color: cta.textColor,
               borderRadius: "25px",
-              fontSize:  parseInt(cta.textSize).toString() + "px",
+              fontSize: parseInt(cta.textSize - 2).toString() + "px",
               fontFamily: cta.textStyle,
-              padding: "0.5em"
-
-            }}>
-              {cta.text}
-            </Button>
-          )
-        }
+              padding: "0.6em",
+            }}
+          >
+            {cta.text}
+          </Button>
+        )}
       </div>
 
       {/* Socials  */}
       <div className="icons">
         {socials.selected.map((social) => (
-          <SocialIcon
-            style={{
-              display: parseInt(social.value.length) === 0 && "none",
-              height: styling.iconSize,
-              width: styling.iconSize,
-              marginRight: "0.2em",
-            }}
-            key={social.socialID}
-            url={social.value}
-          />
+          <a href={social.value} style={{display: parseInt(social.value.length) === 0 && "none"}}>
+            <img src={social.source} key={social.socialID} style={{height: styling.iconSize, width: styling.iconSize}}>
+            </img>
+          </a>
         ))}
+      </div>
+
+      <div>
+        <span
+          style={{
+            color: "grey",
+            fontFamily: styling.fontStyle,
+            fontSize: parseInt(addons.fontSize).toString() + "px",
+          }}
+        >
+          <p
+            style={{
+              whiteSpace: "break-spaces",
+              width: parseInt(addons.width).toString() + "px",
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+              lineHeight: "100%"
+            }}
+          >
+            {addons["data"][addons.selected]["content"]}
+          </p>
+        </span>
       </div>
     </div>
   );

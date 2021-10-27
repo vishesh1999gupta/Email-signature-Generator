@@ -16,3 +16,18 @@
 .preview-box{
     padding: 0.8em;
 }
+
+.preview-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.alert {
+    position: fixed;
+    width: 30%;
+    z-index: 3;
+    right: 0;
+    top: 100px;
+}
+

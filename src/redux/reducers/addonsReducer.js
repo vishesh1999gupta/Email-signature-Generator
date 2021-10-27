@@ -34,6 +34,9 @@ const addonsReducer = (prevState = initialState, action) => {
                 newState["form"]["data"]["custom"]["content"] = action.value
                 newState["form"]["selected"] = "custom"
             }
+            else if(action.key === "reset"){
+                newState = initialState
+            }
             else if(action.key === "selected"){
                 if(action.value !== "custom" && newState["form"]["selected"] === "custom")
                     newState["form"]["data"]["custom"]["content"] = ""

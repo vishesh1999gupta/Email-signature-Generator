@@ -28,8 +28,12 @@ const mainReducer = (prevState = initialState, action) => {
             let stringifiedPrevState = JSON.stringify(prevState)
             let newState = JSON.parse(stringifiedPrevState)
 
-            if(action.key === "image"){
-                newState["form"][action.key] = URL.createObjectURL(action.value);
+            // if(action.key === "image"){
+            //     newState["form"][action.key] = URL.createObjectURL(action.value);
+            // }
+            // else 
+            if(action.key === "reset"){
+                newState = initialState
             }
             else newState["form"][action.key] = action.value
             return {

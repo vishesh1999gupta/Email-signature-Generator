@@ -1,15 +1,20 @@
 import React from "react";
 import Information from "./Information";
 import Preview from "./Preview";
-import './form.css';
+import "./form.css";
+import About from "./About";
+
 
 function Form() {
-    return (
+  return (
+    <div>
+      <About />
       <div className="form">
-        <Information/>
-        <Preview/>
+        <Information />
+        <Preview />
       </div>
-    );
-  }
-  
-  export default Form;
+    </div>
+  );
+}
+
+export default Form;
