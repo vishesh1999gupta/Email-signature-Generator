@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
 
-function Template1() {
+function Template5() {
   const form = useSelector((state) => state.main.form);
   const styling = useSelector((state) => state.style.form);
   const socials = useSelector((state) => state.social);
@@ -11,6 +11,19 @@ function Template1() {
 
   return (
     <div className="template" style={{ paddingTop: "2em", lineHeight: "1.6" }}>
+      {/* Image */}
+
+      <div>
+        {form.image && (
+          <img
+            alt="avatar"
+            src={form.image}
+            height={styling.avatarSize.toString() + "px"}
+            style={{ borderRadius: styling.avatarRadius, paddingTop: "0.3em" }}
+          />
+        )}
+      </div>
+
       <div
         style={{
           color: styling.featureColor,
@@ -37,17 +50,17 @@ function Template1() {
           fontSize: parseInt(styling.fontSize).toString() + "px",
         }}
       >
-        {form.department}
-      </div>
+        {form.department + ", "}
 
-      <div
-        style={{
-          color: styling.textColor,
-          fontFamily: styling.fontStyle,
-          fontSize: parseInt(styling.fontSize).toString() + "px",
-        }}
-      >
-        <strong>{form.companyName}</strong>
+        <span
+          style={{
+            color: styling.textColor,
+            fontFamily: styling.fontStyle,
+            fontSize: parseInt(styling.fontSize).toString() + "px",
+          }}
+        >
+          <strong>{form.companyName}</strong>
+        </span>
       </div>
 
       <div>
@@ -68,7 +81,7 @@ function Template1() {
             fontSize: parseInt(styling.fontSize).toString() + "px",
           }}
         >
-          {form.officePhone}
+          {form.officePhone + "  "}&nbsp;&nbsp;&nbsp;
         </span>
         <span
           style={{
@@ -88,10 +101,8 @@ function Template1() {
             fontSize: parseInt(styling.fontSize).toString() + "px",
           }}
         >
-          {form.mobileNumber}
+          {form.mobileNumber + "  "}&nbsp;&nbsp;&nbsp;
         </span>
-      </div>
-      <div>
         <span
           style={{
             color: styling.featureColor,
@@ -130,28 +141,7 @@ function Template1() {
             fontSize: parseInt(styling.fontSize).toString() + "px",
           }}
         >
-          {form.address}
-        </span>
-      </div>
-      <div>
-        <span
-          style={{
-            color: "white",
-            fontFamily: styling.fontStyle,
-            fontSize: parseInt(styling.fontSize).toString() + "px",
-            display: parseInt(form.addressLine2.length) === 0 && "none",
-          }}
-        >
-          A:{" "}
-        </span>
-        <span
-          style={{
-            color: styling.textColor,
-            fontFamily: styling.fontStyle,
-            fontSize: parseInt(styling.fontSize).toString() + "px",
-          }}
-        >
-          {form.addressLine2}
+          {form.address + ", " + form.addressLine2}
         </span>
       </div>
       <div>
@@ -172,10 +162,8 @@ function Template1() {
             fontSize: parseInt(styling.fontSize).toString() + "px",
           }}
         >
-          {form.website}
+          {form.website + "  "}
         </span>
-      </div>
-      <div>
         <span
           style={{
             color: styling.featureColor,
@@ -197,19 +185,6 @@ function Template1() {
         </span>
       </div>
 
-      {/* Image */}
-
-      <div>
-        {form.image && (
-          <img
-            alt="avatar"
-            src={form.image}
-            height={styling.avatarSize.toString() + "px"}
-            style={{ borderRadius: styling.avatarRadius, paddingTop: "0.3em" }}
-          />
-        )}
-      </div>
-
       {/* Socials  */}
       <div className="icons" style={{ display: "flex", flexDirection: "row" }}>
         {socials.selected.map((social) => (
@@ -227,43 +202,9 @@ function Template1() {
         ))}
       </div>
 
-      {/* CTA */}
+       {/* Badges */}
 
-      <div>
-        {cta.image && cta.imageView && (
-          <a href={cta.link.length === 0 ? "#" : cta.link} rel="noopener noreferrer" target="_blank">
-            <img
-              alt={cta.altText}
-              src={cta.image}
-              height={styling.ctaImageSize}
-              style={{
-                borderRadius: styling.ctaImageRadius,
-                paddingTop: "0.3em",
-              }}
-            />
-          </a>
-        )}
-
-        {!cta.imageView && cta.text.length > 0 && (
-          <Button
-            style={{
-              backgroundColor: cta.backgroundColor,
-              color: cta.textColor,
-              borderRadius: "25px",
-              fontSize: parseInt(cta.textSize - 2).toString() + "px",
-              fontFamily: cta.textStyle,
-              padding: "0.6em",
-            }}
-          >
-            {cta.text}
-          </Button>
-        )}
-      </div>
-      
-
-      {/* Badges */}
-
-      <div>
+       <div>
       {addons.amazonBadge.length > 0 && (
           <a href={addons.amazonBadge} rel="noopener noreferrer" target="_blank">
             <img
@@ -331,7 +272,38 @@ function Template1() {
         )}
       </div>
 
-      {/* disclaimer */}
+      {/* CTA */}
+
+      <div>
+        {cta.image && cta.imageView && (
+          <a href={cta.link.length === 0 ? "#" : cta.link} rel="noopener noreferrer" target="_blank">
+            <img
+              alt={cta.altText}
+              src={cta.image}
+              height={styling.ctaImageSize}
+              style={{
+                borderRadius: styling.ctaImageRadius,
+                paddingTop: "0.3em",
+              }}
+            />
+          </a>
+        )}
+
+        {!cta.imageView && cta.text.length > 0 && (
+          <Button
+            style={{
+              backgroundColor: cta.backgroundColor,
+              color: cta.textColor,
+              borderRadius: "25px",
+              fontSize: parseInt(cta.textSize - 2).toString() + "px",
+              fontFamily: cta.textStyle,
+              padding: "0.6em",
+            }}
+          >
+            {cta.text}
+          </Button>
+        )}
+      </div>
 
       <div>
         <span
@@ -358,4 +330,4 @@ function Template1() {
   );
 }
 
-export default Template1;
+export default Template5;

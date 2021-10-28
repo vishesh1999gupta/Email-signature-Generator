@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
 
-function Template1() {
+function Template2() {
   const form = useSelector((state) => state.main.form);
   const styling = useSelector((state) => state.style.form);
   const socials = useSelector((state) => state.social);
@@ -11,6 +11,20 @@ function Template1() {
 
   return (
     <div className="template" style={{ paddingTop: "2em", lineHeight: "1.6" }}>
+      {/* Image */}
+
+      <div>
+        {form.image && (
+          <img
+            alt="avatar"
+            src={form.image}
+            height={styling.avatarSize.toString() + "px"}
+            style={{ borderRadius: styling.avatarRadius, paddingTop: "0.3em" }}
+          />
+        )}
+      </div>
+
+      {/* First and Last Name */}
       <div
         style={{
           color: styling.featureColor,
@@ -21,6 +35,8 @@ function Template1() {
       >
         {form.firstName + " " + form.lastName}
       </div>
+
+      {/* Job Title */}
       <div
         style={{
           color: styling.textColor,
@@ -30,6 +46,8 @@ function Template1() {
       >
         {form.jobTitle}
       </div>
+
+      {/* Job Department */}
       <div
         style={{
           color: styling.textColor,
@@ -40,6 +58,7 @@ function Template1() {
         {form.department}
       </div>
 
+      {/* Company Name */}
       <div
         style={{
           color: styling.textColor,
@@ -50,6 +69,7 @@ function Template1() {
         <strong>{form.companyName}</strong>
       </div>
 
+      {/* Mobile and office phone */}
       <div>
         <span
           style={{
@@ -91,6 +111,8 @@ function Template1() {
           {form.mobileNumber}
         </span>
       </div>
+
+      {/* Fax  */}
       <div>
         <span
           style={{
@@ -112,6 +134,8 @@ function Template1() {
           {form.officeFax}
         </span>
       </div>
+
+      {/* Address Line 1 */}
       <div>
         <span
           style={{
@@ -133,6 +157,8 @@ function Template1() {
           {form.address}
         </span>
       </div>
+
+      {/* Address Line 2 */}
       <div>
         <span
           style={{
@@ -154,6 +180,8 @@ function Template1() {
           {form.addressLine2}
         </span>
       </div>
+
+      {/* Website */}
       <div>
         <span
           style={{
@@ -175,6 +203,8 @@ function Template1() {
           {form.website}
         </span>
       </div>
+
+      {/* Email */}
       <div>
         <span
           style={{
@@ -197,20 +227,7 @@ function Template1() {
         </span>
       </div>
 
-      {/* Image */}
-
-      <div>
-        {form.image && (
-          <img
-            alt="avatar"
-            src={form.image}
-            height={styling.avatarSize.toString() + "px"}
-            style={{ borderRadius: styling.avatarRadius, paddingTop: "0.3em" }}
-          />
-        )}
-      </div>
-
-      {/* Socials  */}
+       {/* Socials  */}
       <div className="icons" style={{ display: "flex", flexDirection: "row" }}>
         {socials.selected.map((social) => (
           <a
@@ -226,7 +243,7 @@ function Template1() {
           </a>
         ))}
       </div>
-
+           
       {/* CTA */}
 
       <div>
@@ -244,6 +261,8 @@ function Template1() {
           </a>
         )}
 
+        
+
         {!cta.imageView && cta.text.length > 0 && (
           <Button
             style={{
@@ -259,11 +278,10 @@ function Template1() {
           </Button>
         )}
       </div>
-      
 
-      {/* Badges */}
+       {/* Badges */}
 
-      <div>
+       <div>
       {addons.amazonBadge.length > 0 && (
           <a href={addons.amazonBadge} rel="noopener noreferrer" target="_blank">
             <img
@@ -331,8 +349,9 @@ function Template1() {
         )}
       </div>
 
-      {/* disclaimer */}
+      
 
+      {/* Addons */}
       <div>
         <span
           style={{
@@ -358,4 +377,4 @@ function Template1() {
   );
 }
 
-export default Template1;
+export default Template2;

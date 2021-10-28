@@ -20,7 +20,14 @@ const initialState = {
         },
         fontSize: 14,
         width: 500,
-        selected: "confidentiality"
+        selected: "confidentiality",
+        amazonBadge: "",
+        appleBadge: "",
+        ebayBadge: "",
+        googleBusinessBadge: "",
+        googlePlayBadge: "",
+        badgeHeight: 50,
+        badgePaddingTop: 15
     }
 }
 

@@ -18,6 +18,7 @@ function Social() {
       {socials.selected.map((social) => (
         <div className="social-input">
           <img
+            alt="social"
             src={social.source}
             style={{ height: "2.5em", width: "2.5em" }}
           ></img>
@@ -45,6 +46,7 @@ function Social() {
         <div className="icon-list">
           {socials.otherSocials.map((social) => (
             <img
+              alt="social"
               src={social.source}
               style={{ height: "2.5em", width: "2.5em" }}
               onClick={(event) => dispatch(addSocial(social.socialID))}

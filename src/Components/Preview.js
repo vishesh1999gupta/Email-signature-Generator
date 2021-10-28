@@ -2,6 +2,15 @@ import { Button } from "@mui/material";
 import React, { useRef, useState } from "react";
 import "./preview.css";
 import Template1 from "./Template1";
+import Template2 from "./Template2";
+import Template3 from "./Template3";
+import Template4 from "./Template4";
+import Template5 from "./Template5";
+import Template6 from "./Template6";
+import Template7 from "./Template7";
+import Template8 from "./Template8";
+import Template9 from "./Template9";
+import Template10 from "./Template10";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
@@ -49,6 +58,7 @@ const responsive = {
 function Preview() {
   const [open, setOpen] = useState(false);
   const [alertContent, setAlertContent] = useState("");
+  const [template, setTemplate] = useState(1);
   const textAreaRef = useRef(null);
   return (
     <div className="preview">
@@ -140,12 +150,21 @@ function Preview() {
           Subject:
         </div>
         <div className="preview-box" ref={textAreaRef}>
-          <Template1 />
+          {template === 1 && <Template1 />}
+          {template === 2 && <Template2 />}
+          {template === 3 && <Template3 />}
+          {template === 4 && <Template4 />}
+          {template === 5 && <Template5 />}
+          {template === 6 && <Template6 />}
+          {template === 7 && <Template7 />}
+          {template === 8 && <Template8 />}
+          {template === 9 && <Template9 />}
+          {template === 10 && <Template10 />}
         </div>
       </div>
-      <div style={{ width: "600px", height: "400px" }}>
+      <div style={{ width: "45em", height: "30em" }}>
         <Carousel
-          style={{ width: "600px", height: "400px" }}
+          style={{ width: "45em", height: "20em" }}
           swipeable={false}
           draggable={false}
           showDots={true}
@@ -164,20 +183,64 @@ function Preview() {
           itemClass="carousel-item-padding-40-px"
         >
           <img
-            src="https://i.ibb.co/NLgwLFK/medium-monogram-v1.png"
-            style={{ padding: "21px 0em" }}
+          alt="template"
+            src="./images/template1.jpg"
+            style={{ padding: "1em 4em", margin: "5em", height: "8em", width: "7em", border: template === 1 ? "2px solid #0385DB" : "1px solid #DDDDDD"  }}
+            onClick = {() => setTemplate(1)}
           ></img>
           <img
-            src="https://i.ibb.co/n8NznCj/whatsapp.png"
-            style={{ padding: "21px 0em" }}
+          alt="template"
+            src="./images/template2.jpg"
+            style={{ padding: "1em 4em", margin: "5em", height: "8em", width: "8em", border: template === 2 ? "2px solid #0385DB" : "1px solid #DDDDDD" }}
+            onClick = {() => setTemplate(2)}
           ></img>
           <img
-            src="https://i.ibb.co/h7Tf9D2/telegram-app-v1.png"
-            style={{ padding: "21px 0em" }}
+          alt="template"
+            src="./images/template3.jpg"
+            style={{ padding: "1em 4em", margin: "5em", height: "8em", width: "8em", border: template === 3 ? "2px solid #0385DB" : "1px solid #DDDDDD" }}
+            onClick = {() => setTemplate(3)}
           ></img>
           <img
-            src="https://i.ibb.co/Wk1q26M/reddit.png"
-            style={{ padding: "21px 0em" }}
+          alt="template"
+            src="./images/template4.jpg"
+            style={{ padding: "1em 0em", margin: "5em", height: "8em",width: "8em", border: template === 4 ? "2px solid #0385DB" : "1px solid #DDDDDD" }}
+            onClick = {() => setTemplate(4)}
+          ></img>
+          <img
+          alt="template"
+            src="./images/template5.jpg"
+            style={{ padding: "1em 0em", margin: "5em", height: "8em", border: template === 5 ? "2px solid #0385DB" : "1px solid #DDDDDD" }}
+            onClick = {() => setTemplate(5)}
+          ></img>
+          <img
+          alt="template"
+            src="./images/template6.jpg"
+            style={{ padding: "1em 0em", margin: "5em", height: "8em", border: template === 6 ? "2px solid #0385DB" : "1px solid #DDDDDD" }}
+            onClick = {() => setTemplate(6)}
+          ></img>
+          <img
+          alt="template"
+            src="./images/template7.jpg"
+            style={{ padding: "1em 0em", margin: "5em", height: "8em", border: template === 7 ? "2px solid #0385DB" : "1px solid #DDDDDD" }}
+            onClick = {() => setTemplate(7)}
+          ></img>
+          <img
+          alt="template"
+            src="./images/template8.jpg"
+            style={{ padding: "1em 0em", margin: "5em", height: "8em", border: template === 8 ? "2px solid #0385DB" : "1px solid #DDDDDD" }}
+            onClick = {() => setTemplate(8)}
+          ></img>
+          <img
+            alt="template"
+            src="./images/template9.jpg"
+            style={{ padding: "1em 0em", margin: "5em", height: "8em", border: template === 9 ? "2px solid #0385DB" : "1px solid #DDDDDD" }}
+            onClick = {() => setTemplate(9)}
+          ></img>
+          <img
+            alt="template"
+            src="./images/template10.jpg"
+            style={{ padding: "1em 0em", margin: "5em", height: "8em", border: template === 10 ? "2px solid #0385DB" : "1px solid #DDDDDD" }}
+            onClick = {() => setTemplate(10)}
           ></img>
         </Carousel>
       </div>

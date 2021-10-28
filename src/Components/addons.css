@@ -1,46 +1,59 @@
 .addons {
-    width: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    font-size: 1em;
-    display: flex;
-    flex-direction: column;
-    margin-top: 1em;
-    
-  }
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
 
 .addons-row {
-    padding: 1em 1em 0em 1em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
+  padding: 1em 1em 0em 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .addons-row select {
-    width: 75%;
-    margin-left: 1em;
-    
+  width: 75%;
+  margin-left: 1em;
 }
 
 .addons-row label {
-    padding: 0.5em;
+  padding: 0.5em;
 }
 
 .addons-row textarea {
-    margin: 1em 0em 0em 0.8em;
-    padding: 0.7em;
-    width: 100%;
-    background-color: #EEEEEE;
-    outline: none;
-    color: #1B2437;
-    border: 1px solid #DDD;
-    height: 120px;
-    overflow-y: scroll;
-    text-align: left;
-    resize: none;
+  margin: 1em 0em 0em 0.8em;
+  padding: 0.7em;
+  width: 100%;
+  background-color: #eeeeee;
+  outline: none;
+  color: #1b2437;
+  border: 1px solid #ddd;
+  height: 120px;
+  overflow-y: scroll;
+  text-align: left;
+  resize: none;
 }
 
 textarea:active {
-    outline: none;
+  outline: none;
+}
+
+.app-badge {
+  
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 1em 0em;
+}
+
+.app-badge input {
+  border: 1px solid #dddddd;
+  margin-left: 1em;
+  padding: 0.5em;
+  font-size: medium;
+  border-radius: 5px;
 }
